@@ -1,8 +1,11 @@
 @charcet "UTF-8"
 
-body 
-{
+body {
 	margin: 0 0 0 0;
 	background-color : #d9e5ff;
 	
+}
+.wide {
+	margin: 0 auto 0 auto;
+	max-width: 960px;
 }
