@@ -11,9 +11,8 @@ body {
 	max-width: 960px;
 }
 .footer {
-	background-repeat: no-repeat;
 	margin-top: 30px;
 	padding: 80px 15px 20px 15px;
-	font-size: 12px;
+	font-size: 13px;
 	color: #3f5170;
 }
