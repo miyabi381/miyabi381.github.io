@@ -17,6 +17,7 @@ body {
 .float{
 	float: left;
 	padding: 0 1em 0 1em;
+	width: 190px;
 }
 h2 {
 	color: #3f5170;
@@ -114,7 +115,10 @@ img {
 		display: block;
 	}
 	.float{
-	float: none;
-	padding: 0 1em 0 1em;
+	display:table;
+	table-layout: fixed;
+		float: none;
+		padding: 0 1em 0 1em;
+		width: 190px;
 }
 }
