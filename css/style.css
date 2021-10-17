@@ -3,22 +3,27 @@
 html {
 	font-family: sans-serif;
 }
+
 html * {
 	box-sizing: border-box;
 }
+
 body {
 	margin: 0 0 0 1em;
-	background-color : #fffcf5;
+	background-color: #fffcf5;
 }
+
 .wide {
 	margin: 0 auto 0 auto;
 	max-width: 960px;
 }
-.float{
+
+.float {
 	float: left;
 	padding: 0 2em 0 1em;
 	width: 190px;
 }
+
 h2 {
 	color: #3f5170;
 	font-size: 22px;
@@ -32,24 +37,34 @@ h2 {
 	padding-bottom: 5px;
 	padding-left: 5px;
 }
+
 p {
 	line-height: 1.6;
 }
+
 a:link {
 	color: #d25833;
 }
+
 a:visited {
 	color: #d25833;
 }
+
 a:hover {
 	color: #e3937a;
 }
+
 a:active {
 	color: #ff6a3b;
 }
+
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+.clink {
+	color: #d25833;
 }
 
 
@@ -58,12 +73,14 @@ img {
 	margin: 50px 0 40px 0;
 	text-align: center;
 }
+
 .nav ul {
 	margin: 0 0 0 0;
 	padding: 20px 10px 15px 20px;
 	background-image: url(../image/menu-bg.png);
 	background-repeat: repeat-x;
 }
+
 .nav li {
 	display: inline;
 	list-style-type: none;
@@ -86,11 +103,14 @@ img {
 .info {
 	border-collapse: collapse;
 }
-.info th, .info td {
+
+.info th,
+.info td {
 	padding: 8px;
 	border: 1px solid #bec2c7;
 	text-align: left;
 }
+
 .info th {
 	background-color: #fff7e3;
 	width: 100px;
@@ -100,22 +120,26 @@ img {
 
 
 @media screen and (max-width: 767px) {
+
 	/* 全体 - ナビゲーション */
 	.wrapper {
 		margin: 0 8px;
 	}
+
 	.logo {
 		margin: 30px auto auto 1em;
 		max-width: 200px;
 	}
-	.nav{	
-	}
+
+	.nav {}
+
 	.nav li {
 		display: block;
 	}
-	.float{
-	display:table;
-	table-layout: fixed;
+
+	.float {
+		display: table;
+		table-layout: fixed;
 		float: right;
 		padding: 0 1em 0 1em;
 		width: 190px;
