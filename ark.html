@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
+<meta charset="UTF-8">
 
 <head>
-
-	<script data-ad-client="ca-pub-1234567890123456" async
-		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
 	<title>
 		しおりぴのもりARK:設定
 	</title>
 	<link rel="stylesheet" href="css/style.css">
-	<meta name="google-site-verification" content="nTKgiE1pLX6vlt7dHTmmTHhWVTMxIII8uKQ_ZNWoMCw" />
+	<script type="text/javascript" src="js/main.js"></script>
 </head>
 
-<body>
+<body onload="assenMokujiTable()">
 	<div class="wide">
 		<header>
 			<h1 class="logo"><a href="index.html"><img src="image/logo.png" alt="miyabi free and easy"></a></h1>
@@ -26,33 +23,185 @@
 			</nav>
 		</header>
 		<h2>しおりぴのもりARKサーバー設定</h2>
-		<br>
-		<table>
+
+		<table frame="box" class="mokuji">
 			<tr>
-				<td style="width: auto;">1</td>
-				<td>2</td>
-				<td>3</td>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
+				<td style="width: 1em;"></td>
+				<td style="width: 1em;"></td>
+				<td style="width: 5em;"></td>
+				<td style="width: 5em;"></td>
+				<td style="width: 5em;"></td>
+				<td style="width: 5em;"></td>
 			</tr>
-			<tr high ="20px"> 
-				<td>
-					<h3 class="clink">■目次</h3>
+			<tr high="20px">
+				<td colspan="3">
+					<h3 class="nospace">■目次</h3>
 				</td>
 			</tr>
-			<tr>
-				<td>
-					<b>・</b><a href="#mod">MOD</a>
+			<tr class="nospace">
+				<td></td>
+				<td colspan="2">
+					<strong>１,<a class="mokuji" href="#setteing">基本設定</a></strong>
+				</td>
+			</tr>
+			<tr class="nospace">
+				<td></td>
+				<td colspan="2">
+					<strong>２,<a class="mokuji" href="#mgf">倍率設定</a></strong>
+				</td>
+			</tr>
+			<tr class="nospace">
+				<td></td>
+				<td colspan="2">
+					<strong>３,<a class="mokuji" onclick="hidModList()"><u>MOD</u></a></strong>
+				</td>
+			</tr>
+			<!-- <button onclick="test()">test</button>
+				<button onclick="hidModList()">table</button> -->
+			<tr class="nospace">
+				<td></td>
+				<td></td>
+				<td colspan="5">
+					<div id="modlist"></div>
 				</td>
 			</tr>
 		</table>
+		<h2> </h2>
+
+		<!-- -- 本文 -- -->
 		<main>
-			<h3 id="mod">MOD</h3>
+			<h3 class="nospace mokuji" id="setting">■基本設定</h3>
+			<div class="main">
+				ゲームモード：PvE<br>
+				放置切断時間：1時間<br>
+				野生恐竜リセット時間：サーバー再起動後７日<br>
+				恐竜最大レベル：150<br>
+				テイム速度：3<br>
+				野生恐竜の気絶値：0.7<br>
+				飛行生物の移動速度レベルアップ：ON
+			</div>
+			<br>
+			<h3 class="nospace mokuji" id="mgf">■倍率設定</h3>
+			<div class="main">
+				経験値：5<br>
+				資源採取量：5<br>
+				資源復活速度：2<br>
+				プレイヤー被ダメージ：0.5<br>
+				プレイヤースタミナ消費速度：0.5<br>
+				死亡時の病気リセット：ON<br>
+				マインドワイプトニック再使用時間：無し<br>
+				刷り込みステータスバフ：1.5<br>
+				恐竜スタミナ消費速度：0.5<br>
+				恐竜体力回復速度：5<br>
+				生物の出現数：0.8<br>
+				ダメージによる資源採取量：3<br>
+				アイテム消滅時間：10<br>
+				アイテム腐敗時間：10<br>
+				作物成長速度：10<br>
+				作物腐敗：無し<br>
+				夜の長さ：0.5<br>
+				建造物修理時間間隔：無し<br>
+				接続されていないパイプ破壊:2日<br>
+				接地後の建築物改修時間：無し<br>
+				発電機等燃料消費間隔：4<br>
+				プレイヤー状態異常回復速度：2<br>
+				酸素量による水泳速度：2<br>
+				プレイヤーと資源間の復活可能距離：0.5<br>
+				髭の成長速度：10<br>
+				交配間隔：0.01<br>
+				孵化速度：30<br>
+				赤ちゃんの成長速度：50<br>
+				世話間隔：0.25<br>
+				赤ちゃんの餌消費間隔：0.5<br>
+				刷り込み値：2<br>
+				恐竜の資源に対するダメージ：3<br>
+				産卵間隔：0.5<br>
+				レイド恐竜への餌やり：ON<br>
+				レイド恐竜餌消費速度：0.5<br>
+				全生物のC4爆弾接着：ON<br>
+			</div>
+			<br>
+			<h3 class="nospace mokuji" id="mod">■MOD</h3>
+			<div class="main">
+				<h4 class="nospace mokuji" id="Death Recovery Mod (v1.12.1)">Death Recovery Mod (v1.12.1)</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Extra Large Storage Box">Extra Large Storage Box</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Upgrade Station v1.8i">Upgrade Station v1.8i</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Swim Clear Scuba Mask">Swim Clear Scuba Mask</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Super Spyglass (Open Source)">Super Spyglass (Open Source)</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Egg N Poop Collector / Incubator">Egg N Poop Collector / Incubator</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Breedable Creatures Bundle">Breedable Creatures Bundle</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Auto Run - Func+">Auto Run - Func+</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Dino Aid">Dino Aid</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Meat Spoiler">Meat Spoiler</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="HG Stacking Mod 10000-90 V315">HG Stacking Mod 10000-90 V315</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="Creature Finder Deluxe">Creature Finder Deluxe</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="EZTame">EZTame</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+				<h4 class="nospace mokuji" id="All Dinos Allow Guns">All Dinos Allow Guns</h4>
+				<div class="main">
+					ok
+				</div>
+				<br>
+
+			</div>
+			<br>
 
 
 
 		</main>
+
+
 		<footer class="footer">
 			<p>&copy;Miyabi. All rights reserved.</p>
 		</footer>
