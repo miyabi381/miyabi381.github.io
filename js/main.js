@@ -1,28 +1,66 @@
+/**
+ * ページtopボタン表示
+ */
+window.onload = function () {
+    var scroll = document.querySelectorAll('.up');
+    var Animation = function () {
+        if(window.innerHeight == 0){
+            scroll.length.classList.remove('show');
+        }
+        for (var i = 0; i < scroll.length; i++) {
+            var triggerMargin = 10;
+            if (window.innerHeight > triggerMargin) {
+                scroll[i].classList.add('show');
+            }
+        }
+    }
+    window.addEventListener('scroll', Animation);
+}
+
+/**
+ * アラートテスト
+ * 引数：表示したい文字(変数)
+ */
 function test(val) {
     alert(val);
 }
 
-function assenMokujiTable() {
-    //testInt = 3;
-    modlist = [
-        "Death Recovery Mod (v1.12.1)",
-        "Extra Large Storage Box",
-        "Upgrade Station v1.8i",
-        "Swim Clear Scuba Mask",
-        "Super Spyglass (Open Source)",
-        "Egg N Poop Collector / Incubator",
-        "Breedable Creatures Bundle",
-        "Auto Run - Func+",
-        "Dino Aid",
-        "Meat Spoiler",
-        "HG Stacking Mod 10000-90 V315",
-        "Creature Finder Deluxe",
-        "EZTame",
-        "All Dinos Allow Guns"
-    ];
-    mokujiTable(modlist);
+/**
+ * 引数に対応した文字配列でテーブル出力
+ * 引数：表示したい文字列(数値)
+ * １：MOD名
+ */
+function assenMokujiTable(val) {
+    data = [];
+    switch (val) {
+        case 1:
+            data = [
+                "Death Recovery Mod (v1.12.1)",
+                "Extra Large Storage Box",
+                "Upgrade Station v1.8i",
+                "Swim Clear Scuba Mask",
+                "Super Spyglass (Open Source)",
+                "Egg N Poop Collector / Incubator",
+                "Breedable Creatures Bundle",
+                "Auto Run - Func+",
+                "Dino Aid",
+                "Meat Spoiler",
+                "HG Stacking Mod 10000-90 V315",
+                "Creature Finder Deluxe",
+                "EZTame",
+                "All Dinos Allow Guns"
+            ];
+            break;
+        default:
+            break;
+    }
+    mokujiTable(data);
 }
 
+/**
+ * テーブルの出力
+ * 引数：文字配列
+ */
 function mokujiTable(data) {
     // table要素を生成
     var table = document.createElement('table');
@@ -39,7 +77,7 @@ function mokujiTable(data) {
         var td = document.createElement('td');
         // td要素内にテキストを追加
         const aTag = document.createElement("a");
-        aTag.href = "#"+data[i];
+        aTag.href = "#" + data[i];
         aTag.innerText = data[i];
         aTag.className = "mokuji";
         td.appendChild(aTag);
@@ -54,6 +92,9 @@ function mokujiTable(data) {
 
 }
 
+/**
+ * 目次・MOD名の表示/非表示切り替え
+ */
 function hidModList() {
     if (document.getElementById('modTable').style.display == "block") {
         document.getElementById('modTable').style.display = "none";

@@ -1,7 +1,6 @@
-
-
 html {
 	font-family: sans-serif;
+	scroll-behavior: smooth;
 }
 
 html * {
@@ -36,6 +35,12 @@ h2 {
 	padding-right: 5px;
 	padding-bottom: 5px;
 	padding-left: 5px;
+}
+
+h4 {
+	margin: 0;
+	padding: 0;
+	color: #3f5170;
 }
 
 p {
@@ -143,9 +148,29 @@ img {
 	padding: 0;
 }
 
-/*--------- 目次コピペ ----------*/
+/***追従するトップへ戻るボタン***/
+.page-top {
+	position: fixed;
+	right: 5px;
+	bottom: 20px;
+	width: 50px;
+}
 
-/*--------- 目次コピペ 終　----------*/
+.up {
+	opacity: 0;
+	transition: all 1s ease;
+}
+
+.up.show {
+	opacity: 1;
+	transform: none;
+}
+
+.op {
+	transform: translate(0, 100px);
+}
+
+/***トップへ戻るボタンここまで***/
 
 
 @media screen and (max-width: 767px) {
