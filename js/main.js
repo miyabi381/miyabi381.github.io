@@ -15,6 +15,7 @@ window.onload = function () {
         }
     }
     window.addEventListener('scroll', Animation);
+    assenMokujiTable(1);
 }
 
 /**
