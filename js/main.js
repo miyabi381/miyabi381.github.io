@@ -18,6 +18,17 @@ window.onload = function () {
     assenMokujiTable(1);
 }
 
+function PPGhostText(){
+    let obj = 
+}
+
+
+
+
+
+
+
+
 /**
  * アラートテスト
  * 引数：表示したい文字(変数)
