@@ -4,7 +4,7 @@
 window.onload = function () {
     var scroll = document.querySelectorAll('.up');
     var Animation = function () {
-        if(window.innerHeight == 0){
+        if (window.innerHeight == 0) {
             scroll.length.classList.remove('show');
         }
         for (var i = 0; i < scroll.length; i++) {
@@ -18,15 +18,49 @@ window.onload = function () {
     assenMokujiTable(1);
 }
 
-function PPGhostText(){
-    let obj = 
+/**
+ * PhasmoPhobia ゴーストテーブル表示
+ * 引数１：証拠のID
+ * 引数２：チェックボックスのID
+ */
+function PPEvidencText(idName,idNameCheck) {
+    let obj = document.getElementById(idName);
+    let objCheck = document.getElementById(idNameCheck);
+    if (obj.className == "none-underline" && objCheck.className == "square") {
+        objCheck.classList.remove("square");
+        objCheck.classList.add("checkbox");
+
+    } else if (objCheck.className == "checkbox") {
+        objCheck.classList.remove("checkbox");
+        objCheck.classList.add("square");
+        obj.classList.remove("none-underline");
+        obj.classList.add("line-through");
+
+    } else {
+        obj.classList.remove("line-through");
+        obj.classList.add("none-underline");
+    }
 }
 
+/**
+ * PhasmoPhobia ゴースト証拠表示
+ * 引数：ID
+ */
+function PPGhostText(idName) {
+    let obj = document.getElementById(idName);
+    if (obj.className == "none-underline") {
+        obj.classList.remove("none-underline");
+        obj.classList.add("border-radius");
 
+    } else if (obj.className == "border-radius") {
+        obj.classList.remove("border-radius");
+        obj.classList.add("line-through");
 
-
-
-
+    } else {
+        obj.classList.remove("line-through");
+        obj.classList.add("none-underline");
+    }
+}
 
 
 /**

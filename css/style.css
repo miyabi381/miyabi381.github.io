@@ -1,3 +1,76 @@
+/* ゴースト名前丸囲み */
+.border-radius {
+	line-height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	padding: 0px 3px 0px 3px;
+	border: 2px solid black;
+	text-decoration-line: none;
+}
+
+/* 取り消し線 */
+.line-through {
+	text-decoration-line: line-through;
+	text-decoration-thickness: 2px;
+}
+
+/* 文字線除去 */
+.none-underline {
+	text-decoration-line: none;
+}
+
+/* ボーダーライン */
+.border-Line{
+	width: 500px;
+	margin-left: 30px;
+	margin-bottom: 10px;
+	border: 2px solid black;
+}
+
+/* 証拠　チェックボックス */
+/* □ */
+.square {
+	display: inline-block;
+	position: relative;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #333;
+	/* 枠の調整 */
+	background: rgba(0, 0, 0, 0);
+	/* ボタンの背景色 */
+}
+
+/* ☑ */
+.checkbox {
+	display: inline-block;
+	position: relative;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #333;
+	/* 枠の調整 */
+	background: rgba(0, 0, 0, 0);
+	/* ボタンの背景色 */
+}
+.checkbox::before,
+.checkbox::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 3px;
+	height: 20px;
+	background: #333;
+}
+.checkbox::before {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+.checkbox::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+} */
+
+
+/* *** *** *** */
+
 html {
 	font-family: sans-serif;
 	scroll-behavior: smooth;
@@ -160,28 +233,34 @@ img {
 
 .PPevidence {
 	border-collapse: collapse;
+	margin-left: 40px;
+	
+}
+
+.PPevidence a {
+	color: black;
 }
 
 .PPevidence td {
-	border: solid 1px;
+	/* border: solid 0px; */
 	height: 30px;
 	width: 250px;
 }
 
 .PPghost {
 	border-collapse: collapse;
-	color: #000;
+	color: black;
+	margin-left: 20px;
 }
 
 .PPghost a {
-	text-decoration: none;
-	color: #000;
+	color: black;
 }
 
 .PPghost td {
-	border: solid 1px black;
-	height: 30px;
-	width: 150px;
+	border: solid 0px black;
+	height: 36px;
+	width: 180px;
 	text-align: center;
 }
 

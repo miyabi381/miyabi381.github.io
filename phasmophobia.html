@@ -24,123 +24,138 @@
 					<li><a href="index.html">ホーム</a></li>
 					<li><a href="about.html">自己紹介</a></li>
 					<li><a href="ark.html">ARK:設定</a></li>
-					<li><a href="phasmophobia.html">Phasmophobia-test</a></li>
+					<li><a href="phasmophobia.html">Phasmophobia:証拠シミュレーション</a></li>
 				</ul>
 			</nav>
 		</header>
 
+		<span style="margin-left: 40px; margin-top:20px; font-size: 40px; display:inline-block; ">証拠</span>
+
+		<div class="border-Line"></div>
+
 		<table class="PPevidence">
 			<tr>
 				<td>
-					<input type="checkbox" id="emf" name="emf5">
-					<label for="emf">EMFレベル５</label>
+					<a id="emf" href="#a" onclick="PPEvidencText('emf','emfCheck')" class="none-underline">
+						<span id="emfCheck" class="square"></span> EMFレベル５
+					</a>
 				</td>
 				<td>
-					<input type="checkbox" id="dots">
-					<label for="dots">D.O.T.S.プロジェクター</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox" id="shimon">
-					<label for="shimon">指紋</label>
-				</td>
-				<td>
-					<input type="checkbox" id="orb">
-					<label for="orb">ゴーストオーブ</label>
+					<a id="dots" href="#a" onclick="PPEvidencText('dots','dotsCheck')" class="none-underline">
+						<span id="dotsCheck" class="square"></span> D.O.T.S.プロジェクター
+					</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="checkbox" id="book">
-					<label for="book">ゴーストライティング</label>
+					<a id="shimon" href="#a" onclick="PPEvidencText('shimon','shimonCheck')" class="none-underline">
+						<span id="shimonCheck" class="square"></span> 指紋　　　
+					</a>
 				</td>
 				<td>
-					<input type="checkbox" id="box">
-					<label for="box">スピリットボックス</label>
+					<a id="orb" href="#a" onclick="PPEvidencText('orb','orbCheck')" class="none-underline">
+						<span id="orbCheck" class="square"></span> ゴーストオーブ
+					</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="checkbox" id="freeze">
-					<label for="freeze">氷点下の温度</label>
+					<a id="book" href="#a" onclick="PPEvidencText('book','bookCheck')" class="none-underline">
+						<span id="bookCheck" class="square"></span> ゴーストライティング
+					</a>
+				</td>
+				<td>
+					<a id="box" href="#a" onclick="PPEvidencText('box','boxCheck')" class="none-underline">
+						<span id="boxCheck" class="square"></span> スピリットボックス
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a id="ice" href="#a" onclick="PPEvidencText('ice','iceCheck')" class="none-underline">
+						<span id="iceCheck" class="square"></span> 氷点下の温度
+					</a>
 				</td>
 				<td>
 				</td>
 			</tr>
 		</table>
 		<br>
+		<div class="border-Line"></div>
+		<span
+			style="margin-left: 200px; margin-top:10px; margin-bottom:10px; font-size: 20px; display:inline-block; ">ゴーストの正体：</span>
 		<table class="PPghost">
 			<tr>
 				<td>
-					<a id="aa" href="#a" onclick="">スピリット</a>
+
+					<a id="aa" href="#a" onclick="PPGhostText('aa')" class="none-underline">スピリット</a>
 				</td>
 				<td>
-					<a href="#a" onclick="">レイス</a>
+					<a id="ab" href="#a" onclick="PPGhostText('ab')" class="none-underline"> レイス </a>
 				</td>
 				<td>
-					<a href="#a" onclick="">ファントム</a>
+					<a id="ac" href="#a" onclick="PPGhostText('ac')" class="none-underline">ファントム</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a href="#a" onclick="">ポルターガイスト</a>
+					<a id="ad" href="#a" onclick="PPGhostText('ad')" class="none-underline">ポルターガイスト</a>
 				</td>
 				<td>
-					<a href="#a" onclick="">バンシー</a>
+					<a id="ae" href="#a" onclick="PPGhostText('ae')" class="none-underline">バンシー</a>
 				</td>
 				<td>
-					<a href="#a" onclick="">ジン</a>
+					<a id="af" href="#a" onclick="PPGhostText('af')" class="none-underline">　ジン　</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a href="#a" onclick="">メアー</a>
+					<a id="ag" href="#a" onclick="PPGhostText('ag')" class="none-underline"> メアー </a>
 				</td>
 				<td>
-					<a href="#a" onclick="">レヴナント</a>
+					<a id="ah" href="#a" onclick="PPGhostText('ah')" class="none-underline">レヴナント</a>
 				</td>
-				<td><a href="#a" onclick="">シェード</a>
-				</td>
-			</tr>
-			<tr>
-				<td><a href="#a" onclick="">デーモン</a>
-				</td>
-				<td><a href="#a" onclick="">幽霊</a>
-				</td>
-				<td><a href="#a" onclick="">鬼</a>
+				<td><a id="ai" href="#a" onclick="PPGhostText('ai')" class="none-underline">シェード</a>
 				</td>
 			</tr>
 			<tr>
-				<td><a href="#a" onclick="">妖怪</a>
+				<td><a id="aj" href="#a" onclick="PPGhostText('aj')" class="none-underline">デーモン</a>
 				</td>
-				<td><a href="#a" onclick="">ハントゥ</a>
+				<td><a id="ak" href="#a" onclick="PPGhostText('ak')" class="none-underline">　幽霊　</a>
 				</td>
-				<td><a href="#a" onclick="">御霊</a>
-				</td>
-			</tr>
-			<tr>
-				<td><a href="#a" onclick="">マイリング</a>
-				</td>
-				<td><a href="#a" onclick="">怨霊</a>
-				</td>
-				<td><a href="#a" onclick="">ツインズ</a>
+				<td><a id="al" href="#a" onclick="PPGhostText('al')" class="none-underline">　　鬼　　</a>
 				</td>
 			</tr>
 			<tr>
-				<td><a href="#a" onclick="">雷獣</a>
+				<td><a id="am" href="#a" onclick="PPGhostText('am')" class="none-underline">　妖怪　</a>
 				</td>
-				<td><a href="#a" onclick="">化け狐</a>
+				<td><a id="an" href="#a" onclick="PPGhostText('an')" class="none-underline">ハントゥ</a>
 				</td>
-				<td><a href="#a" onclick="">ミミック</a>
+				<td><a id="ao" href="#a" onclick="PPGhostText('ao')" class="none-underline">　御霊　</a>
 				</td>
 			</tr>
 			<tr>
-				<td><a href="#a" onclick="">モーロイ</a>
+				<td><a id="ap" href="#a" onclick="PPGhostText('ap')" class="none-underline">マイリング</a>
 				</td>
-				<td><a href="#a" onclick="">デオヘン</a>
+				<td><a id="aq" href="#a" onclick="PPGhostText('aq')" class="none-underline">　怨霊　</a>
 				</td>
-				<td><a href="#a" onclick="">セーイ</a>
+				<td><a id="ar" href="#a" onclick="PPGhostText('ar')" class="none-underline">ツインズ</a>
+				</td>
+			</tr>
+			<tr>
+				<td><a id="as" href="#a" onclick="PPGhostText('as')" class="none-underline">　雷獣　</a>
+				</td>
+				<td><a id="at" href="#a" onclick="PPGhostText('at')" class="none-underline"> 化け狐 </a>
+				</td>
+				<td><a id="au" href="#a" onclick="PPGhostText('au')" class="none-underline">ミミック</a>
+				</td>
+			</tr>
+			<tr>
+				<td><a id="av" href="#a" onclick="PPGhostText('av')" class="none-underline">モーロイ</a>
+				</td>
+				<td><a id="aw" href="#a" onclick="PPGhostText('aw')" class="none-underline">デオヘン</a>
+				</td>
+				<td><a id="ax" href="#a" onclick="PPGhostText('ax')" class="none-underline"> セーイ </a>
 				</td>
 			</tr>
 		</table>
