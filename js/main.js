@@ -19,47 +19,72 @@ window.onload = function () {
 }
 
 /**
- * PhasmoPhobia ゴーストテーブル表示
+ * PhasmoPhobia ゴースト証拠表示
  * 引数１：証拠のID
  * 引数２：チェックボックスのID
  */
-function PPEvidencText(idName,idNameCheck) {
+function PPEvidencText(idName, idNameCheck) {
     let obj = document.getElementById(idName);
     let objCheck = document.getElementById(idNameCheck);
-    if (obj.className == "none-underline" && objCheck.className == "square") {
+    if (obj.className == "none-underline" && objCheck.className == "square") {  // yes
         objCheck.classList.remove("square");
         objCheck.classList.add("checkbox");
 
-    } else if (objCheck.className == "checkbox") {
+    } else if (objCheck.className == "checkbox") {  // no
         objCheck.classList.remove("checkbox");
         objCheck.classList.add("square");
         obj.classList.remove("none-underline");
         obj.classList.add("line-through");
 
     } else {
-        obj.classList.remove("line-through");
+        obj.classList.remove("line-through");  // none
         obj.classList.add("none-underline");
     }
 }
 
 /**
- * PhasmoPhobia ゴースト証拠表示
+ * PhasmoPhobia ゴーストテーブル表示
  * 引数：ID
  */
 function PPGhostText(idName) {
     let obj = document.getElementById(idName);
-    if (obj.className == "none-underline") {
+    if (obj.className == "none-underline") { // yes
         obj.classList.remove("none-underline");
         obj.classList.add("border-radius");
 
-    } else if (obj.className == "border-radius") {
+    } else if (obj.className == "border-radius") {  // no
         obj.classList.remove("border-radius");
         obj.classList.add("line-through");
 
     } else {
-        obj.classList.remove("line-through");
+        obj.classList.remove("line-through");  // none
         obj.classList.add("none-underline");
     }
+}
+
+/**
+ * PhasmoPhobia 証拠によるゴーストの判定
+ * 引数１：証拠ID
+ * 引数２：ゴーストID
+ */
+function PPGhostJudge(evi,eviCheck, ghost) {
+    let objEvi = document.getElementById(evi);
+    let objEviCheck = document.getElementById(eviCheck);
+    let objGhost = document.getElementById(ghost);
+
+    if (objEviCheck.className == "checkbox") {  // yes
+        objGhost.style.color = "";
+        objGhost.style.border = "";
+
+    } else if(objEvi.className == "line-through"){  // no
+        objGhost.style.color = "#ccc9c4";
+        objGhost.style.borderColor = "#ccc9c4";
+
+    }else{
+        objGhost.style.color = "";  // none
+        objGhost.style.border = "";
+    }
+
 }
 
 
