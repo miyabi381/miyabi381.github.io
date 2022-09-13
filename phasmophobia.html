@@ -36,44 +36,51 @@
 		<table class="PPevidence">
 			<tr>
 				<td>
-					<a id="emf" href="#a" onclick="PPEvidencText('emf','emfCheck'),PPGhostJudge('emf','emfCheck','aa')"
+					<a id="emf" href="#a" onclick="PPEvidencText('emf','emfCheck'),PPGhostJudge('emf', emfEvi)"
 						class="none-underline">
 						<span id="emfCheck" class="square"></span> EMFレベル5
 					</a>
 				</td>
 				<td>
-					<a id="dots" href="#a" onclick="PPEvidencText('dots','dotsCheck')" class="none-underline">
+					<a id="dots" href="#a" onclick="PPEvidencText('dots','dotsCheck'),PPGhostJudge('dots', dotsEvi)"
+						class="none-underline">
 						<span id="dotsCheck" class="square"></span> D.O.T.S.プロジェクター
 					</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a id="shimon" href="#a" onclick="PPEvidencText('shimon','shimonCheck')" class="none-underline">
+					<a id="shimon" href="#a"
+						onclick="PPEvidencText('shimon','shimonCheck'),PPGhostJudge('shimon', shimonEvi)"
+						class="none-underline">
 						<span id="shimonCheck" class="square"></span> 指紋 　　　
 					</a>
 				</td>
 				<td>
-					<a id="orb" href="#a" onclick="PPEvidencText('orb','orbCheck')" class="none-underline">
+					<a id="orb" href="#a" onclick="PPEvidencText('orb','orbCheck'),PPGhostJudge('orb', orbEvi)"
+						class="none-underline">
 						<span id="orbCheck" class="square"></span> ゴーストオーブ
 					</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a id="book" href="#a" onclick="PPEvidencText('book','bookCheck')" class="none-underline">
+					<a id="book" href="#a" onclick="PPEvidencText('book','bookCheck'),PPGhostJudge('book', bookEvi)"
+						class="none-underline">
 						<span id="bookCheck" class="square"></span> ゴーストライティング
 					</a>
 				</td>
 				<td>
-					<a id="box" href="#a" onclick="PPEvidencText('box','boxCheck')" class="none-underline">
+					<a id="box" href="#a" onclick="PPEvidencText('box','boxCheck'),PPGhostJudge('box', boxEvi)"
+						class="none-underline">
 						<span id="boxCheck" class="square"></span> スピリットボックス
 					</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a id="ice" href="#a" onclick="PPEvidencText('ice','iceCheck')" class="none-underline">
+					<a id="ice" href="#a" onclick="PPEvidencText('ice','iceCheck'),PPGhostJudge('ice', iceEvi)"
+						class="none-underline">
 						<span id="iceCheck" class="square"></span> 氷点下の温度
 					</a>
 				</td>
@@ -88,74 +95,74 @@
 		<table class="PPghost">
 			<tr>
 				<td>
-					<a id="aa" href="#a" onclick="PPGhostText('aa')" class="none-underline">スピリット</a>
+					<a id="spirit" href="#a" onclick="PPGhostText('spirit')" class="none-underline">スピリット</a>
 				</td>
 				<td>
-					<a id="ab" href="#a" onclick="PPGhostText('ab')" class="none-underline">　レイス　</a>
+					<a id="wraith" href="#a" onclick="PPGhostText('wraith')" class="none-underline">　レイス　</a>
 				</td>
 				<td>
-					<a id="ac" href="#a" onclick="PPGhostText('ac')" class="none-underline">ファントム</a>
+					<a id="phantom" href="#a" onclick="PPGhostText('phantom')" class="none-underline">ファントム</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a id="ad" href="#a" onclick="PPGhostText('ad')" class="none-underline">ポルターガイスト</a>
+					<a id="polter" href="#a" onclick="PPGhostText('polter')" class="none-underline">ポルターガイスト</a>
 				</td>
 				<td>
-					<a id="ae" href="#a" onclick="PPGhostText('ae')" class="none-underline"> バンシー </a>
+					<a id="banshee" href="#a" onclick="PPGhostText('banshee')" class="none-underline"> バンシー </a>
 				</td>
 				<td>
-					<a id="af" href="#a" onclick="PPGhostText('af')" class="none-underline"> 　ジン　 </a>
+					<a id="jinn" href="#a" onclick="PPGhostText('jinn')" class="none-underline"> 　ジン　 </a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a id="ag" href="#a" onclick="PPGhostText('ag')" class="none-underline"> メアー </a>
+					<a id="mare" href="#a" onclick="PPGhostText('mare')" class="none-underline"> メアー </a>
 				</td>
 				<td>
-					<a id="ah" href="#a" onclick="PPGhostText('ah')" class="none-underline">レヴナント</a>
+					<a id="revenant" href="#a" onclick="PPGhostText('revenant')" class="none-underline">レヴナント</a>
 				</td>
-				<td><a id="ai" href="#a" onclick="PPGhostText('ai')" class="none-underline"> シェード </a>
-				</td>
-			</tr>
-			<tr>
-				<td><a id="aj" href="#a" onclick="PPGhostText('aj')" class="none-underline"> デーモン </a>
-				</td>
-				<td><a id="ak" href="#a" onclick="PPGhostText('ak')" class="none-underline"> 　幽霊　 </a>
-				</td>
-				<td><a id="al" href="#a" onclick="PPGhostText('al')" class="none-underline">　　鬼　　</a>
+				<td><a id="shade" href="#a" onclick="PPGhostText('shade')" class="none-underline"> シェード </a>
 				</td>
 			</tr>
 			<tr>
-				<td><a id="am" href="#a" onclick="PPGhostText('am')" class="none-underline"> 　妖怪　 </a>
+				<td><a id="demon" href="#a" onclick="PPGhostText('demon')" class="none-underline"> デーモン </a>
 				</td>
-				<td><a id="an" href="#a" onclick="PPGhostText('an')" class="none-underline"> ハントゥ </a>
+				<td><a id="yurei" href="#a" onclick="PPGhostText('yurei')" class="none-underline"> 　幽霊　 </a>
 				</td>
-				<td><a id="ao" href="#a" onclick="PPGhostText('ao')" class="none-underline"> 　御霊　 </a>
-				</td>
-			</tr>
-			<tr>
-				<td><a id="ap" href="#a" onclick="PPGhostText('ap')" class="none-underline">マイリング</a>
-				</td>
-				<td><a id="aq" href="#a" onclick="PPGhostText('aq')" class="none-underline"> 　怨霊　 </a>
-				</td>
-				<td><a id="ar" href="#a" onclick="PPGhostText('ar')" class="none-underline"> ツインズ </a>
+				<td><a id="oni" href="#a" onclick="PPGhostText('oni')" class="none-underline">　　鬼　　</a>
 				</td>
 			</tr>
 			<tr>
-				<td><a id="as" href="#a" onclick="PPGhostText('as')" class="none-underline"> 　雷獣　 </a>
+				<td><a id="yokai" href="#a" onclick="PPGhostText('yokai')" class="none-underline"> 　妖怪　 </a>
 				</td>
-				<td><a id="at" href="#a" onclick="PPGhostText('at')" class="none-underline">　化け狐　</a>
+				<td><a id="hantu" href="#a" onclick="PPGhostText('hantu')" class="none-underline"> ハントゥ </a>
 				</td>
-				<td><a id="au" href="#a" onclick="PPGhostText('au')" class="none-underline"> ミミック </a>
+				<td><a id="goryo" href="#a" onclick="PPGhostText('goryo')" class="none-underline"> 　御霊　 </a>
 				</td>
 			</tr>
 			<tr>
-				<td><a id="av" href="#a" onclick="PPGhostText('av')" class="none-underline"> モーロイ </a>
+				<td><a id="myling" href="#a" onclick="PPGhostText('myling')" class="none-underline">マイリング</a>
 				</td>
-				<td><a id="aw" href="#a" onclick="PPGhostText('aw')" class="none-underline"> デオヘン </a>
+				<td><a id="onryo" href="#a" onclick="PPGhostText('onryo')" class="none-underline"> 　怨霊　 </a>
 				</td>
-				<td><a id="ax" href="#a" onclick="PPGhostText('ax')" class="none-underline">　セーイ　</a>
+				<td><a id="twins" href="#a" onclick="PPGhostText('twins')" class="none-underline"> ツインズ </a>
+				</td>
+			</tr>
+			<tr>
+				<td><a id="raiju" href="#a" onclick="PPGhostText('raiju')" class="none-underline"> 　雷獣　 </a>
+				</td>
+				<td><a id="obake" href="#a" onclick="PPGhostText('obake')" class="none-underline">　化け狐　</a>
+				</td>
+				<td><a id="mimic" href="#a" onclick="PPGhostText('mimic')" class="none-underline"> ミミック </a>
+				</td>
+			</tr>
+			<tr>
+				<td><a id="moroi" href="#a" onclick="PPGhostText('moroi')" class="none-underline"> モーロイ </a>
+				</td>
+				<td><a id="deogen" href="#a" onclick="PPGhostText('deogen')" class="none-underline"> デオヘン </a>
+				</td>
+				<td><a id="thaye" href="#a" onclick="PPGhostText('thaye')" class="none-underline">　セーイ　</a>
 				</td>
 			</tr>
 		</table>
