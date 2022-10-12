@@ -85,42 +85,51 @@ function PPGhostJudge(eviID, ghostID) {
 }
 
 /**
- * PhasmoPhobia 証拠別ゴースト配列
+ * PhasmoPhobia 証拠によるゴーストの判定
+ * 引数１：証拠ID
+ * 引数２：ゴーストID
  */
-// EMFレベル５
-let emfEvi = [
-    "spirit", "wraith", "jinn", "shade", "oni", "goryo", "myling", "twins", "raiju", "obake"
-];
+function PPtestGhost(eviID){
+    const testObj = spritEvi;
+    let objEvi = document.getElementById(eviID);
+    
+    if (objEvi.className == "line-through") {
+        for(const val of testObj){
+            if(eviID == val){
+                const objGhost = document.getElementById("spirit");
+                objGhost.style.color = "#ccc9c4";  // no
+                objGhost.style.borderColor = "#ccc9c4";
+                return;
+            }
+        }
+    }else{
+        const objGhost = document.getElementById("spirit");
+        objGhost.style.color = "";  // none
+        objGhost.style.borderColor = "";
+    }
+}
 
-// D.O.T.S プロジェクター
-let dotsEvi = [
-    "wraith", "phantom", "banshee", "yurei", "oni", "yokai", "goryo", "raiju", "deogen", "thaye"
-];
+/**
+ * PhasmoPhobia 証拠フラグ切り替え
+ */
+function PPGhostFlag(val){
+    if(val == 0){
+        
+    }else{
 
-// 指紋
-let shimonEvi = [
-    "phantom", "polter", "banshee", "jinn", "demon", "hantu", "goryo", "myling", "obake", "mimic"
-];
+    }
+}
 
-// ゴーストオーブ
-let orbEvi = [
-    "banshee", "mare", "revenant", "yurei", "hontu", "yokai", "onryo", "raiju", "obake", "thaye"
-];
-
-// ゴーストライティング
-let bookEvi = [
-    "spirit", "polter", "mare", "revenant", "shade", "demon", "myling", "moroi", "deogen", "thaye"
-];
-
-// スピリットボックス
-let boxEvi = [
-    "spirit", "wraith", "phantom", "polter", "mare", "yokai", "onryo", "twins", "moroi", "deogen", "mimic"
-];
-
-// 氷点下の温度
-let iceEvi = [
-    "jinn", "revenant", "shade", "demon", "yurei", "oni", "hantu", "onryo", "twins", "moroi", "mimic"
-];
+/**
+ * PhasmoPhobia 証拠フラグ
+ */
+const emfFlag = 0;  // EMFレベル５
+const dotsFlag = 0;  // D.O.T.S プロジェクター
+const shimonFlag = 0;  // 指紋
+const orbFlag = 0;  // ゴーストオーブ
+const bookFlag = 0;  // ゴーストライティング
+const boxFlag = 0;  // スピリットボックス
+const iceFlag = 0;  // 氷点下の温度
 
 /**
  * PhasmoPhobia ゴースト別ゴースト配列
@@ -173,6 +182,45 @@ let moroi= ["box","book","ice"];
 let deogen= ["box","book","dots"];
 // セーイ
 let thaye= ["orb","book","dots"];
+
+/**
+ * PhasmoPhobia 証拠別ゴースト配列
+ */
+// EMFレベル５
+let emfEvi = [
+    "spirit", "wraith", "jinn", "shade", "oni", "goryo", "myling", "twins", "raiju", "obake"
+];
+
+// D.O.T.S プロジェクター
+let dotsEvi = [
+    "wraith", "phantom", "banshee", "yurei", "oni", "yokai", "goryo", "raiju", "deogen", "thaye"
+];
+
+// 指紋
+let shimonEvi = [
+    "phantom", "polter", "banshee", "jinn", "demon", "hantu", "goryo", "myling", "obake", "mimic"
+];
+
+// ゴーストオーブ
+let orbEvi = [
+    "banshee", "mare", "revenant", "yurei", "hontu", "yokai", "onryo", "raiju", "obake", "thaye"
+];
+
+// ゴーストライティング
+let bookEvi = [
+    "spirit", "polter", "mare", "revenant", "shade", "demon", "myling", "moroi", "deogen", "thaye"
+];
+
+// スピリットボックス
+let boxEvi = [
+    "spirit", "wraith", "phantom", "polter", "mare", "yokai", "onryo", "twins", "moroi", "deogen", "mimic"
+];
+
+// 氷点下の温度
+let iceEvi = [
+    "jinn", "revenant", "shade", "demon", "yurei", "oni", "hantu", "onryo", "twins", "moroi", "mimic"
+];
+
 
 
 
