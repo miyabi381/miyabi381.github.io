@@ -15,8 +15,10 @@ window.onload = function () {
         }
     }
     window.addEventListener('scroll', Animation);
-    assenMokujiTable(1);
+    getTitle();
 }
+
+
 
 /**
  * PhasmoPhobia ゴースト証拠表示
@@ -89,20 +91,20 @@ function PPGhostJudge(eviID, ghostID) {
  * 引数１：証拠ID
  * 引数２：ゴーストID
  */
-function PPtestGhost(eviID){
+function PPtestGhost(eviID) {
     const testObj = spritEvi;
     let objEvi = document.getElementById(eviID);
-    
+
     if (objEvi.className == "line-through") {
-        for(const val of testObj){
-            if(eviID == val){
+        for (const val of testObj) {
+            if (eviID == val) {
                 const objGhost = document.getElementById("spirit");
                 objGhost.style.color = "#ccc9c4";  // no
                 objGhost.style.borderColor = "#ccc9c4";
                 return;
             }
         }
-    }else{
+    } else {
         const objGhost = document.getElementById("spirit");
         objGhost.style.color = "";  // none
         objGhost.style.borderColor = "";
@@ -112,10 +114,10 @@ function PPtestGhost(eviID){
 /**
  * PhasmoPhobia 証拠フラグ切り替え
  */
-function PPGhostFlag(val){
-    if(val == 0){
-        
-    }else{
+function PPGhostFlag(val) {
+    if (val == 0) {
+
+    } else {
 
     }
 }
@@ -135,53 +137,53 @@ const iceFlag = 0;  // 氷点下の温度
  * PhasmoPhobia ゴースト別ゴースト配列
  */
 // スピリット
-let spritEvi= ["emf","box","book"];
+let spritEvi = ["emf", "box", "book"];
 // レイス
-let wraith= ["emf","box","dots"];
+let wraith = ["emf", "box", "dots"];
 // ファントム
-let phantom= ["box","shimon","dots"];
+let phantom = ["box", "shimon", "dots"];
 // ポルターガイスト
-let polter= ["box","shimon","book"];
+let polter = ["box", "shimon", "book"];
 // バンシー
-let banshee= ["shimon","orb","dots"];
+let banshee = ["shimon", "orb", "dots"];
 // ジン
-let jinn= ["emf","shimon","ice"];
+let jinn = ["emf", "shimon", "ice"];
 // メアー
-let mare= ["box","orb","book"];
+let mare = ["box", "orb", "book"];
 // レヴナント
-let revenant= ["orb","book","ice"];
+let revenant = ["orb", "book", "ice"];
 // シェード
-let shade= ["emf","book","ice"];
+let shade = ["emf", "book", "ice"];
 // デーモン
-let demon= ["shimon","book","ice"];
+let demon = ["shimon", "book", "ice"];
 // 幽霊
-let yurei= ["orb","ice","dots"];
+let yurei = ["orb", "ice", "dots"];
 // 鬼
-let oni= ["emf","ice","dots"];
+let oni = ["emf", "ice", "dots"];
 // 妖怪
-let yokai= ["box","orb","dots"];
+let yokai = ["box", "orb", "dots"];
 // ハントゥ
-let hantu= ["shimon","orb","ice"];
+let hantu = ["shimon", "orb", "ice"];
 // 御霊
-let goryo= ["emf","shimon","dots"];
+let goryo = ["emf", "shimon", "dots"];
 // マイリング
-let myling= ["emf","shimon","book"];
+let myling = ["emf", "shimon", "book"];
 // 怨霊
-let onryo= ["box","orb","ice"];
+let onryo = ["box", "orb", "ice"];
 // ツインズ
-let twins= ["emf","box","ice"];
+let twins = ["emf", "box", "ice"];
 // 雷獣
-let raiju= ["emf","orb","dots"];
+let raiju = ["emf", "orb", "dots"];
 // 化け狐
-let obake= ["emf","shimon","orb"];
+let obake = ["emf", "shimon", "orb"];
 // ミミック
-let mimic= ["box","shimon","ice"];
+let mimic = ["box", "shimon", "ice"];
 // モーロイ
-let moroi= ["box","book","ice"];
+let moroi = ["box", "book", "ice"];
 // デオヘン
-let deogen= ["box","book","dots"];
+let deogen = ["box", "book", "dots"];
 // セーイ
-let thaye= ["orb","book","dots"];
+let thaye = ["orb", "book", "dots"];
 
 /**
  * PhasmoPhobia 証拠別ゴースト配列
@@ -240,7 +242,7 @@ function test(val) {
 function assenMokujiTable(val) {
     data = [];
     switch (val) {
-        case 1:
+        case 1: // ark
             data = [
                 "Death Recovery Mod (v1.12.1)",
                 "Extra Large Storage Box",
@@ -256,6 +258,30 @@ function assenMokujiTable(val) {
                 "Creature Finder Deluxe",
                 "EZTame",
                 "All Dinos Allow Guns"
+            ];
+            break;
+        case 2:
+            data = [
+                "建築"
+                , "火源"
+                , "食料"
+                , "溶解炉"
+                , "鉄溶鉱炉"
+                , "ゲーム難易度"
+                , "ショートカットキー"
+                , "アイテム"
+                , "HUD"
+                , "採取"
+                , "炭焼き窯"
+                , "地図"
+                , "プレイヤー"
+                , "スタミナ(基礎)"
+                , "スタミナ(武器・道具)"
+                , "作業台"
+                , "インベントリ"
+                , "風車"
+                , "糸車"
+                , "チャット"
             ];
             break;
         default:
@@ -303,10 +329,33 @@ function mokujiTable(data) {
  * 目次・MOD名の表示/非表示切り替え
  */
 function hidModList() {
+
     if (document.getElementById('modTable').style.display == "block") {
         document.getElementById('modTable').style.display = "none";
+        document.getElementById('hideText').innerText = "表示";
     } else {
         document.getElementById('modTable').style.display = "block";
+        document.getElementById('hideText').innerText = "非表示";
     }
 
+}
+
+/**
+ * ページURL取得・ページIDに変換
+ */
+function getTitle() {
+    let title = document.title;
+    //alert(title == "しおりぴのもりARK:設定" ? 1 : 2);
+    // 1: ark
+    // 2: valheim
+    switch (title == "しおりぴのもりARK:設定" ? 1 : 2) {
+        case 1:
+            assenMokujiTable(1);
+            break;
+        case 2:
+            assenMokujiTable(2);
+            break;
+        default:
+            break;
+    }
 }
