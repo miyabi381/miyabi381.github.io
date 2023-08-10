@@ -13,13 +13,20 @@
 
 <body class="noselect">
 	<div class="wide">
-		<header>	
+		<header>
 			<h1 class="logo"><a href="index.html"><img src="image/logo.png" alt="miyabi free and easy"></a></h1>
 			<nav class="nav">
 				<ul>
 					<li><a href="index.html">ホーム</a></li>
 					<li><a href="about.html">自己紹介</a></li>
-					<li><a href="ark.html">ARK:設定</a></li>
+					<li class="selectdiv">
+						<select onChange="location.href=value;">
+							<option selected> ARK:設定</option>
+							<option value="ark_cocacola.html">こかこーら！</option>
+							<option value="ark_shioripi.html">しおりぴのもり</option>
+						</select>
+					</li>
+
 					<li><a href="valheim.html">Vlaheim:Mod設定</a></li>
 					<li><a href="phasmophobia.html">Phasmophobia:証拠シミュレーション</a></li>
 				</ul>
@@ -39,7 +46,8 @@
 					</a>
 				</td>
 				<td>
-					<a id="dots" href="#a" onclick="PPEvidencText('dots','dotsCheck')" class="none-underline">
+					<a id="dots" href="#a" onclick="PPEvidencText('dots','dotsCheck'),PPGhostJudge('dots')"
+						class="none-underline">
 						<span id="dotsCheck" class="square"></span> D.O.T.S.プロジェクター
 					</a>
 				</td>
@@ -87,74 +95,74 @@
 		<table class="PPghost">
 			<tr>
 				<td>
-					<a id="spirit" href="#a" onclick="PPGhostText('spirit')" class="none-underline">スピリット</a>
+					<a id="spirit" href="#a" onclick="PPGhostName('spirit')" class="none-underline">スピリット</a>
 				</td>
 				<td>
-					<a id="wraith" href="#a" onclick="PPGhostText('wraith')" class="none-underline">　レイス　</a>
+					<a id="wraith" href="#a" onclick="PPGhostName('wraith')" class="none-underline">　レイス　</a>
 				</td>
 				<td>
-					<a id="phantom" href="#a" onclick="PPGhostText('phantom')" class="none-underline">ファントム</a>
+					<a id="phantom" href="#a" onclick="PPGhostName('phantom')" class="none-underline">ファントム</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a id="polter" href="#a" onclick="PPGhostText('polter')" class="none-underline">ポルターガイスト</a>
+					<a id="polter" href="#a" onclick="PPGhostName('polter')" class="none-underline">ポルターガイスト</a>
 				</td>
 				<td>
-					<a id="banshee" href="#a" onclick="PPGhostText('banshee')" class="none-underline"> バンシー </a>
+					<a id="banshee" href="#a" onclick="PPGhostName('banshee')" class="none-underline"> バンシー </a>
 				</td>
 				<td>
-					<a id="jinn" href="#a" onclick="PPGhostText('jinn')" class="none-underline"> 　ジン　 </a>
+					<a id="jinn" href="#a" onclick="PPGhostName('jinn')" class="none-underline"> 　ジン　 </a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a id="mare" href="#a" onclick="PPGhostText('mare')" class="none-underline"> メアー </a>
+					<a id="mare" href="#a" onclick="PPGhostName('mare')" class="none-underline"> メアー </a>
 				</td>
 				<td>
-					<a id="revenant" href="#a" onclick="PPGhostText('revenant')" class="none-underline">レヴナント</a>
+					<a id="revenant" href="#a" onclick="PPGhostName('revenant')" class="none-underline">レヴナント</a>
 				</td>
-				<td><a id="shade" href="#a" onclick="PPGhostText('shade')" class="none-underline"> シェード </a>
-				</td>
-			</tr>
-			<tr>
-				<td><a id="demon" href="#a" onclick="PPGhostText('demon')" class="none-underline"> デーモン </a>
-				</td>
-				<td><a id="yurei" href="#a" onclick="PPGhostText('yurei')" class="none-underline"> 　幽霊　 </a>
-				</td>
-				<td><a id="oni" href="#a" onclick="PPGhostText('oni')" class="none-underline">　　鬼　　</a>
+				<td><a id="shade" href="#a" onclick="PPGhostName('shade')" class="none-underline"> シェード </a>
 				</td>
 			</tr>
 			<tr>
-				<td><a id="yokai" href="#a" onclick="PPGhostText('yokai')" class="none-underline"> 　妖怪　 </a>
+				<td><a id="demon" href="#a" onclick="PPGhostName('demon')" class="none-underline"> デーモン </a>
 				</td>
-				<td><a id="hantu" href="#a" onclick="PPGhostText('hantu')" class="none-underline"> ハントゥ </a>
+				<td><a id="yurei" href="#a" onclick="PPGhostName('yurei')" class="none-underline"> 　幽霊　 </a>
 				</td>
-				<td><a id="goryo" href="#a" onclick="PPGhostText('goryo')" class="none-underline"> 　御霊　 </a>
-				</td>
-			</tr>
-			<tr>
-				<td><a id="myling" href="#a" onclick="PPGhostText('myling')" class="none-underline">マイリング</a>
-				</td>
-				<td><a id="onryo" href="#a" onclick="PPGhostText('onryo')" class="none-underline"> 　怨霊　 </a>
-				</td>
-				<td><a id="twins" href="#a" onclick="PPGhostText('twins')" class="none-underline"> ツインズ </a>
+				<td><a id="oni" href="#a" onclick="PPGhostName('oni')" class="none-underline">　　鬼　　</a>
 				</td>
 			</tr>
 			<tr>
-				<td><a id="raiju" href="#a" onclick="PPGhostText('raiju')" class="none-underline"> 　雷獣　 </a>
+				<td><a id="yokai" href="#a" onclick="PPGhostName('yokai')" class="none-underline"> 　妖怪　 </a>
 				</td>
-				<td><a id="obake" href="#a" onclick="PPGhostText('obake')" class="none-underline">　化け狐　</a>
+				<td><a id="hantu" href="#a" onclick="PPGhostName('hantu')" class="none-underline"> ハントゥ </a>
 				</td>
-				<td><a id="mimic" href="#a" onclick="PPGhostText('mimic')" class="none-underline"> ミミック </a>
+				<td><a id="goryo" href="#a" onclick="PPGhostName('goryo')" class="none-underline"> 　御霊　 </a>
 				</td>
 			</tr>
 			<tr>
-				<td><a id="moroi" href="#a" onclick="PPGhostText('moroi')" class="none-underline"> モーロイ </a>
+				<td><a id="myling" href="#a" onclick="PPGhostName('myling')" class="none-underline">マイリング</a>
 				</td>
-				<td><a id="deogen" href="#a" onclick="PPGhostText('deogen')" class="none-underline"> デオヘン </a>
+				<td><a id="onryo" href="#a" onclick="PPGhostName('onryo')" class="none-underline"> 　怨霊　 </a>
 				</td>
-				<td><a id="thaye" href="#a" onclick="PPGhostText('thaye')" class="none-underline">　セーイ　</a>
+				<td><a id="twins" href="#a" onclick="PPGhostName('twins')" class="none-underline"> ツインズ </a>
+				</td>
+			</tr>
+			<tr>
+				<td><a id="raiju" href="#a" onclick="PPGhostName('raiju')" class="none-underline"> 　雷獣　 </a>
+				</td>
+				<td><a id="obake" href="#a" onclick="PPGhostName('obake')" class="none-underline">　化け狐　</a>
+				</td>
+				<td><a id="mimic" href="#a" onclick="PPGhostName('mimic')" class="none-underline"> ミミック </a>
+				</td>
+			</tr>
+			<tr>
+				<td><a id="moroi" href="#a" onclick="PPGhostName('moroi')" class="none-underline"> モーロイ </a>
+				</td>
+				<td><a id="deogen" href="#a" onclick="PPGhostName('deogen')" class="none-underline"> デオヘン </a>
+				</td>
+				<td><a id="thaye" href="#a" onclick="PPGhostName('thaye')" class="none-underline">　セーイ　</a>
 				</td>
 			</tr>
 		</table>

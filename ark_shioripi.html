@@ -21,7 +21,14 @@
 				<ul>
 					<li><a href="index.html">ホーム</a></li>
 					<li><a href="about.html">自己紹介</a></li>
-					<li><a href="ark.html">ARK:設定</a></li>
+					<li class="selectdiv">
+						<select onChange="location.href=value;">
+							<option selected> ARK:設定</option>
+							<option value="ark_cocacola.html">こかこーら！</option>
+							<option value="ark_shioripi.html">しおりぴのもり</option>
+						</select>
+					</li>
+
 					<li><a href="valheim.html">Vlaheim:Mod設定</a></li>
 					<li><a href="phasmophobia.html">Phasmophobia:証拠シミュレーション</a></li>
 				</ul>
@@ -57,12 +64,13 @@
 			</tr>
 			<tr class="nospace">
 				<td></td>
-				<td colspan="2">
-					<strong>３,<a class="mokuji" href="#none" onclick="hidModList()">MOD</a></strong>
+				<td colspan="4">
+					<strong>３,<b>MOD [<a id="hideText" class="mokuji" href="#none"
+								onclick="hidemodList('modTable','hideText')">表示</a>]</b></strong>
 				</td>
 			</tr>
 			<!-- <button onclick="test()">test</button>
-				<button onclick="hidModList()">table</button> -->
+				<button onclick="hidemodList('modTable','hideText')()">table</button> -->
 			<tr class="nospace">
 				<td></td>
 				<td></td>

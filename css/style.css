@@ -19,9 +19,10 @@ body {
 	max-width: 960px;
 }
 
-.noselect{
+.noselect {
 	-webkit-user-select: none;
-	user-select: none /* 選択を禁止する */
+	user-select: none
+		/* 選択を禁止する */
 }
 
 .float {
@@ -43,6 +44,7 @@ h2 {
 	padding-bottom: 5px;
 	padding-left: 5px;
 }
+
 
 h3 {
 	font-weight: 700;
@@ -109,7 +111,17 @@ img {
 	color: #3f5170;
 }
 
+/* ark */
+.ark_table{
+	border-collapse: collapse;
+}
 
+.ark_table th,
+.ark_table td{
+	padding: 8px;
+	border: 1px solid #bec2c7;
+	text-align: left;
+}
 
 /*へっだー*/
 .logo {
@@ -165,6 +177,47 @@ img {
 	margin: 0;
 	padding: 0;
 }
+
+/* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
+
+/* *** *** *** *** *** *** *** *** 目次プルダウン *** *** *** *** *** *** *** *** *** *** *** */
+
+.selectdiv {
+	position: relative;
+}
+
+.selectdiv:after {
+	content: '<>';
+	font: 15px "Consolas", monospace;
+	color: #d25833;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+	top: 2px;
+	/*Adjust for position however you want*/
+	
+	/* top: 18px;
+	padding: 0 0 2px;
+	border-bottom: 1px solid #999;
+	left line */
+	
+	position: absolute;
+	pointer-events: none;
+  }
+
+.selectdiv select {
+	color: #d25833;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #ffffff;
+	background-image: none;
+	border: 0px;
+	font-size: 17px;
+}
+
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 
 /* *** *** *** *** *** *** *** *** PhasmoPhobia *** *** *** *** *** *** *** *** *** *** *** */
@@ -191,7 +244,7 @@ img {
 }
 
 /* ボーダーライン */
-.border-Line{
+.border-Line {
 	width: 500px;
 	margin-left: 30px;
 	margin-bottom: 10px;
@@ -222,6 +275,7 @@ img {
 	background: rgba(0, 0, 0, 0);
 	/* ボタンの背景色 */
 }
+
 .checkbox::before,
 .checkbox::after {
 	content: "";
@@ -232,12 +286,14 @@ img {
 	height: 20px;
 	background: #333;
 }
+
 .checkbox::before {
 	transform: translate(-50%, -50%) rotate(45deg);
 }
+
 .checkbox::after {
 	transform: translate(-50%, -50%) rotate(-45deg);
-} 
+}
 
 
 /* 文字の色変更 */

@@ -48,7 +48,7 @@ function PPEvidencText(idName, idNameCheck) {
  * PhasmoPhobia ゴーストテーブル表示
  * 引数：ID
  */
-function PPGhostText(idName) {
+function PPGhostName(idName) {
     let obj = document.getElementById(idName);
     if (obj.className == "none-underline") { // yes
         obj.classList.remove("none-underline");
@@ -69,18 +69,34 @@ function PPGhostText(idName) {
  * 引数１：証拠ID
  * 引数２：ゴーストID
  */
-function PPGhostJudge(eviID, ghostID) {
+function PPGhostJudge(eviID) {
     let objEvi = document.getElementById(eviID);
-    if (objEvi.className == "line-through") {
-        for (const val of ghostID) {
-            const objGhost = document.getElementById(val);
-            objGhost.style.color = "#ccc9c4";  // no
-            objGhost.style.borderColor = "#ccc9c4";
+    if (objEvi.className == "line-through") {  //  証拠なし
+        for (i = 0; i < 2; i++) {
+            alert(i);
+            for (const gName of PPGN) {
+                var count = 0;
+                alert(PPGNEvi.spirit);
+                alert(gName+"  1");
+                alert(PPGNEvi.gName+"  2");
+                for (const gEvi of PPGNEvi.gName) {
+                    alert(gEvi);
+                    if (gEvi == eviID) {  // ゴーストに証拠がある
+                        count++;
+                    }
+                }
+                if (count != 0) {  // 証拠が一つでもあれば
+                    const objGhost = document.getElementById(gName);
+                    objGhost.style.color = "#ccc9c4";  // 文字グレー
+                    objGhost.style.borderColor = "#ccc9c4";
+                }
+            }
         }
+
     } else {
-        for (const val of ghostID) {
+        for (const val of PPGN) {
             const objGhost = document.getElementById(val);
-            objGhost.style.color = "";  // none
+            objGhost.style.color = "";  // 文字黒
             objGhost.style.border = "";
         }
     }
@@ -92,7 +108,7 @@ function PPGhostJudge(eviID, ghostID) {
  * 引数２：ゴーストID
  */
 function PPtestGhost(eviID) {
-    const testObj = spritEvi;
+    const testObj = spiritEvi;
     let objEvi = document.getElementById(eviID);
 
     if (objEvi.className == "line-through") {
@@ -134,56 +150,82 @@ const boxFlag = 0;  // スピリットボックス
 const iceFlag = 0;  // 氷点下の温度
 
 /**
- * PhasmoPhobia ゴースト別ゴースト配列
+ * PhasmoPhobia ゴースト名配列
+ * 
  */
-// スピリット
-let spritEvi = ["emf", "box", "book"];
-// レイス
-let wraith = ["emf", "box", "dots"];
+// let PPGN = ["spirit", "wraith", "phantom", "polter", "banshee", "jinn"
+//     , "mare", "revenant", "shade", "demon", "yurei", "oni", "yokai"
+//     , "hantu", "goryo", "myling", "onryo", "twins", "raiju", "obake"
+//     , "mimic", "moroi", "deogen", "thaye"];
+
+    let PPGN = ["spirit", "wraith"];
+
+
+/**
+ * PhasmoPhobia ゴースト名証拠用配列
+ * 
+*/
+
+// let PPGNEvi = [spiritEvi, wraithEvi, phantomEvi, polterEvi, bansheeEvi, jinn
+//     , mareEvi, revenantEvi, shadeEvi, demonEvi, yureiEvi, oniEvi, yokai
+//     , hantuEvi, goryoEvi, mylingEvi, onryoEvi, twinsEvi, raijuEvi, obake
+//     , mimicEvi, moroiEvi, deogenEvi, thayeEvi];
+
+let PPGNEvi = {spirit:["emf", "box", "book"], wraith:["emf", "box", "dots"]};
+
+
+/**
+ * PhasmoPhobia ゴースト別証拠配列
+ */
+// // スピリット
+// let spiritEvi = ["emf", "box", "book"];
+// // レイス
+// let wraithEvi = ["emf", "box", "dots"];
 // ファントム
-let phantom = ["box", "shimon", "dots"];
+let phantomEvi = ["box", "shimon", "dots"];
 // ポルターガイスト
-let polter = ["box", "shimon", "book"];
+let polterEvi = ["box", "shimon", "book"];
 // バンシー
-let banshee = ["shimon", "orb", "dots"];
+let bansheeEvi = ["shimon", "orb", "dots"];
 // ジン
-let jinn = ["emf", "shimon", "ice"];
+let jinnEvi = ["emf", "shimon", "ice"];
 // メアー
-let mare = ["box", "orb", "book"];
+let mareEvi = ["box", "orb", "book"];
 // レヴナント
-let revenant = ["orb", "book", "ice"];
+let revenantEvi = ["orb", "book", "ice"];
 // シェード
-let shade = ["emf", "book", "ice"];
+let shadeEvi = ["emf", "book", "ice"];
 // デーモン
-let demon = ["shimon", "book", "ice"];
+let demonEvi = ["shimon", "book", "ice"];
 // 幽霊
-let yurei = ["orb", "ice", "dots"];
+let yureiEvi = ["orb", "ice", "dots"];
 // 鬼
-let oni = ["emf", "ice", "dots"];
+let oniEvi = ["emf", "ice", "dots"];
 // 妖怪
-let yokai = ["box", "orb", "dots"];
+let yokaiEvi = ["box", "orb", "dots"];
 // ハントゥ
-let hantu = ["shimon", "orb", "ice"];
+let hantuEvi = ["shimon", "orb", "ice"];
 // 御霊
-let goryo = ["emf", "shimon", "dots"];
+let goryoEvi = ["emf", "shimon", "dots"];
 // マイリング
-let myling = ["emf", "shimon", "book"];
+let mylingEvi = ["emf", "shimon", "book"];
 // 怨霊
-let onryo = ["box", "orb", "ice"];
+let onryoEvi = ["box", "orb", "ice"];
 // ツインズ
-let twins = ["emf", "box", "ice"];
+let twinsEvi = ["emf", "box", "ice"];
 // 雷獣
-let raiju = ["emf", "orb", "dots"];
+let raijuEvi = ["emf", "orb", "dots"];
 // 化け狐
-let obake = ["emf", "shimon", "orb"];
+let obakeEvi = ["emf", "shimon", "orb"];
 // ミミック
-let mimic = ["box", "shimon", "ice"];
+let mimicEvi = ["box", "shimon", "ice"];
 // モーロイ
-let moroi = ["box", "book", "ice"];
+let moroiEvi = ["box", "book", "ice"];
 // デオヘン
-let deogen = ["box", "book", "dots"];
+let deogenEvi = ["box", "book", "dots"];
 // セーイ
-let thaye = ["orb", "book", "dots"];
+let thayeEvi = ["orb", "book", "dots"];
+
 
 /**
  * PhasmoPhobia 証拠別ゴースト配列
@@ -224,11 +266,10 @@ let iceEvi = [
 ];
 
 
-
-
 /**
  * アラートテスト
  * 引数：表示したい文字(変数)
+ * 
  */
 function test(val) {
     alert(val);
@@ -328,14 +369,14 @@ function mokujiTable(data) {
 /**
  * 目次・MOD名の表示/非表示切り替え
  */
-function hidModList() {
+function hidemodList(table,Text) {
 
-    if (document.getElementById('modTable').style.display == "block") {
-        document.getElementById('modTable').style.display = "none";
-        document.getElementById('hideText').innerText = "表示";
+    if (document.getElementById(table).style.display == "block") {
+        document.getElementById(table).style.display = "none";
+        document.getElementById(Text).innerText = "表示";
     } else {
-        document.getElementById('modTable').style.display = "block";
-        document.getElementById('hideText').innerText = "非表示";
+        document.getElementById(table).style.display = "block";
+        document.getElementById(Text).innerText = "非表示";
     }
 
 }
