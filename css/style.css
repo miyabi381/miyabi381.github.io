@@ -25,6 +25,10 @@ body {
 		/* 選択を禁止する */
 }
 
+select {
+	text-decoration: underline;
+}
+
 .float {
 	float: left;
 	padding: 0 2em 0 1em;
@@ -409,7 +413,7 @@ img {
 
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1000px) {
 
 	/* 全体 - ナビゲーション */
 	.wrapper {
@@ -417,17 +421,58 @@ img {
 	}
 
 	.logo {
-		margin: 30px auto auto 1em;
+		margin: 30px auto 20px 1em;
 		max-width: 200px;
+	}
+
+	.logo img {
+		height: 100px;
+	}
+
+
+	.selectdiv::after {
+		content: '<>';
+		font: 30px "Consolas", monospace;
+		color: #d25833;
+		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		transform: rotate(90deg);
+		top: 4px;
+		/*Adjust for position however you want*/
+
+		/* top: 18px;
+		padding: 0 0 2px;
+		border-bottom: 1px solid #999;
+		left line */
+
+		position: absolute;
+		pointer-events: none;
+	}
+
+	.selectdiv select {
+		color: #d25833;
+		outline: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background-color: #ffffff;
+		background-image: none;
+		border: 0px;
+		font-size: 40px;
 	}
 
 	.nav li {
 		display: block;
 	}
 
+	 nav.nav ul li a{
+		font-size: 40px;
+	}
+
 	.float {
 		display: table;
-		table-layout: fixed;
+		table-layout: auto;
 		float: right;
 		padding: 0 1em 0 1em;
 		width: 190px;
@@ -441,12 +486,9 @@ img {
 		width: 83%;
 	}
 
-	.profileimg {
-		float: left;
-		display: table;
-		table-layout: fixed;
-		padding: 0 1em 0 1em;
-		margin: 0 5px;
+	table.mokuji {
+		color: #3f5170;
+		font-size: 40px;
 	}
 
 }
