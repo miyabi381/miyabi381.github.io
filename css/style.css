@@ -192,6 +192,28 @@ img {
 
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 
+
+/* *** *** *** *** *** *** *** *** 目次プルダウン *** *** *** *** *** *** *** *** *** *** *** */
+
+.boxShadow{
+	box-shadow: 2px 2px 2px 3px rgba(81, 103, 141, 0.696) ;
+	-webkit-box-shadow: 2px 2px 2px 3px rgba(81, 103, 141, 0.696) ;
+	-moz-box-shadow: 2px 2px 2px 3px rgba(81, 103, 141, 0.696) ;
+	-o-box-shadow: 2px 2px 2px 3px rgba(81, 103, 141, 0.696) ;
+	-ms-box-shadow: 2px 2px 2px 3px rgba(81, 103, 141, 0.696) ;
+	background-color: #f2f0e9;
+	border-radius: 5px;
+	margin: 8px;
+	padding: 10px;
+	font-size: larger;
+}
+
+
+
+
+/* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
+
+
 /* *** *** *** *** *** *** *** *** 目次プルダウン *** *** *** *** *** *** *** *** *** *** *** */
 
 .selectdiv {
