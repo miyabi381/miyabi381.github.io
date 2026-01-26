@@ -79,7 +79,7 @@ itiranBTN.addEventListener('click', () => {
 		const span = document.createElement("span");
 		span.textContent = text;
 
-		div.onclick = "group"+i ();
+		div.onclick = () => cLog(text);
 
 		div.className = "solid-box";
 		div.style.cursor = "pointer";
@@ -91,6 +91,11 @@ itiranBTN.addEventListener('click', () => {
 
 	console.log("グループ一覧生成");
 });
+
+function cLog(text){
+	console.log(text);
+}
+
 
 function group1() {
 	console.log("１");
