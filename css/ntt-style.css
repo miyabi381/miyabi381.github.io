@@ -1,0 +1,57 @@
+.solid-box {
+	border: 1px solid #bec2c7;
+	width: 200px;
+	margin: 1px;
+	font-size: larger;
+	font-weight: bold;
+	color: #5c6570;
+}
+
+.itiran-btn {
+	background: #89b2e5;
+	color: white;
+	border: none;
+	padding: 10px 12px;
+	font-size: large;
+	font-weight: bold;
+	border-radius: 6px;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+
+
+/* てーぶる */
+.Scheduler {
+	margin-top: 2em;
+	border-collapse: collapse;
+}
+
+.Scheduler th,
+.Scheduler td {
+	padding: 8px;
+	border: 1px solid #bec2c7;
+	text-align: center;
+	width: 150px;
+	font-weight: bold;
+	color: #5c6570;
+}
+
+.Scheduler th {
+	background-color: #95e3f238;
+	color: #1c2a44;
+	vertical-align: top;
+}
+
+.cell-item {
+	background: #cfe0ff;
+	border: 1px solid #6387b2;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cell-padding {
+	padding: 0px 2px;
+}

@@ -1,19 +1,19 @@
 window.onload = () => {
-    console.log("^^^^^　読み込み完了　^^^^^^^");
-    var scroll = document.querySelectorAll('.up');
-    var Animation = function () {
-        if (window.innerHeight == 0) {
-            scroll.length.classList.remove('show');
-        }
-        for (var i = 0; i < scroll.length; i++) {
-            var triggerMargin = 10;
-            if (window.innerHeight > triggerMargin) {
-                scroll[i].classList.add('show');
-            }
-        }
-    }
-    window.addEventListener('scroll', Animation);
-    let title = document.title;
+	console.log("^^^^^　読み込み完了　^^^^^^^");
+	var scroll = document.querySelectorAll('.up');
+	var Animation = function () {
+		if (window.innerHeight == 0) {
+			scroll.length.classList.remove('show');
+		}
+		for (var i = 0; i < scroll.length; i++) {
+			var triggerMargin = 10;
+			if (window.innerHeight > triggerMargin) {
+				scroll[i].classList.add('show');
+			}
+		}
+	}
+	window.addEventListener('scroll', Animation);
+	let title = document.title;
 };
 
 
@@ -64,24 +64,46 @@ window.onload = () => {
 //　一覧ボタンの処理
 const itiranBTN = document.querySelector('body > div > button');
 itiranBTN.addEventListener('click', () => {
-    const target = document.querySelector('#ここにグループ一覧');
-    if(target.childElementCount > 0){
-        target.replaceChildren();
-        return;
-    }
-    // グループ一覧の生成
-    const groupList = document.createElement("div");
-    groupList.setAttribute("name", "グループ一覧");
-    const groups = ["グループ１", "グループ２", "グループ３", "グループ４", "グループ５"];
-    groups.forEach(text => {
-        const div = document.createElement("div");
-        const span = document.createElement("span");
-        span.textContent = text;
-        div.appendChild(span);
-        groupList.appendChild(div);
-    });
-    target.appendChild(groupList);
+	const target = document.querySelector('#ここにグループ一覧 > div:nth-child(2)');
+	if (target.childElementCount > 0) {
+		target.replaceChildren();
+		return;
+	}
+	// グループ一覧の生成
+	const groupList = document.createElement("div");
+	groupList.setAttribute("name", "グループ一覧");
+	const groups = ["グループ１", "グループ２", "グループ３", "グループ４", "グループ５"];
+	const i = 0;
+	groups.forEach(text => {
+		const div = document.createElement("div");
+		const span = document.createElement("span");
+		span.textContent = text;
 
-    console.log("グループ一覧生成");
+		div.onclick = "group"+i ();
+
+		div.className = "solid-box";
+		div.style.cursor = "pointer";
+
+		div.appendChild(span);
+		groupList.appendChild(div);
+	});
+	target.appendChild(groupList);
+
+	console.log("グループ一覧生成");
 });
 
+function group1() {
+	console.log("１");
+}
+function group2() {
+	console.log("２");
+}
+function group3() {
+	console.log("３");
+}
+function group4() {
+	console.log("４");
+}
+function group5() {
+	console.log("５");
+}
