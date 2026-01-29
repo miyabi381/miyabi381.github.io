@@ -5,6 +5,7 @@
 	font-size: larger;
 	font-weight: bold;
 	color: #5c6570;
+	background-color: #fffcf5;
 }
 
 .itiran-btn {
@@ -17,6 +18,14 @@
 	border-radius: 6px;
 	cursor: pointer;
 	margin-bottom: 10px;
+}
+
+.overlay {
+	position: fixed;
+	padding: 5px;
+	background-color: #fffcf5cb;
+	border: 1px solid #bec2c7;
+	border-radius: 6px;
 }
 
 

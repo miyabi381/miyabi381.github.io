@@ -61,41 +61,77 @@ window.onload = () => {
 
 
 
+
+
+// グループ一覧　削除ボタン
+const itiranSetteiBtn = document.createElement("button");
+itiranSetteiBtn.textContent = "設定";
+itiranSetteiBtn.className = "itiran-btn";
+	// 削除
+itiranSetteiBtn.addEventListener("click", () => {
+	const kanshiTag = kanshi("#ここにグループ一覧 > div:nth-child(2) > div",()=> delChildren(document.querySelector("#ここにグループ一覧 > div:nth-child(2)")));
+	kanshiTag.start();
+	kanshiTag.stop();
+	itiranSetteiBtn.remove();
+});
+
 //　一覧ボタンの処理
-const itiranBTN = document.querySelector('body > div > button');
+const itiranBTN = document.querySelector('body > div > div:nth-child(4) > button');
 itiranBTN.addEventListener('click', () => {
 	const target = document.querySelector('#ここにグループ一覧 > div:nth-child(2)');
-	if (target.childElementCount > 0) {
-		target.replaceChildren();
+	if (delChildren(target)){
+		itiranSetteiBtn.remove()
 		return;
 	}
 	// グループ一覧の生成
 	const groupList = document.createElement("div");
 	groupList.setAttribute("name", "グループ一覧");
+	groupList.setAttribute("class", "overlay");
 	const groups = ["グループ１", "グループ２", "グループ３", "グループ４", "グループ５"];
 	const i = 0;
+
+	// 一覧ボタン追加
+	groupList.appendChild(itiranSetteiBtn);
+	
 	groups.forEach(text => {
 		const div = document.createElement("div");
 		const span = document.createElement("span");
 		span.textContent = text;
-
+		
 		div.onclick = () => cLog(text);
-
+		
 		div.className = "solid-box";
 		div.style.cursor = "pointer";
-
+		
 		div.appendChild(span);
 		groupList.appendChild(div);
 	});
+	
 	target.appendChild(groupList);
-
-	console.log("グループ一覧生成");
 });
 
-function cLog(text){
+// 引数の文字列をログ出力
+function cLog(text) {
 	console.log(text);
 }
 
+// 引数の要素を非表示に
+function hideElement(tag) {
+	const targetElement = document.querySelector(tag);
+	targetElement.style.display = "none";
+}
+
+// 引数の要素をすべて消す
+function delChildren(target){
+	if (target.childElementCount > 0){
+		target.replaceChildren();
+		// cLog("delChildren:要素消去");
+		return true;
+	}else{
+		// cLog("delChildren:要素なし");
+		return false;
+	}
+}
 
 function group1() {
 	console.log("１");
@@ -111,4 +147,57 @@ function group4() {
 }
 function group5() {
 	console.log("５");
+}
+
+
+
+// 監視関数
+function kanshi(target, callback, options = {}) {
+	const root = options.root || document.body;
+	const once = options.once ?? false;
+
+	let observer = null;
+	let done = false;
+
+	const resolveTarget = () => {
+		if (typeof target === 'string') {
+			return document.querySelector(target);
+		}
+		if (target instanceof HTMLElement) {
+			return target;
+		}
+		return null;
+	};
+
+	const detect = () => {
+		const el = resolveTarget();
+		if (!el) return;
+
+		if (!once || !done) {
+			done = true;
+			callback(el);   // ← 外部関数をそのまま実行するだけ
+			if (once) stop();
+		}
+	};
+
+	const start = () => {
+		if (observer) return; // すでに監視中なら何もしない
+		detect(); // 既に存在している場合も拾う
+
+		observer = new MutationObserver(() => {
+			detect();
+		});
+
+		observer.observe(root, {
+			childList: true,
+			subtree: true,
+		});
+	};
+
+	const stop = () => {
+		observer?.disconnect();
+		observer = null;
+	};
+
+	return { start, stop };
 }
