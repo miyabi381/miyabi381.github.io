@@ -1,11 +1,15 @@
 .solid-box {
 	border: 1px solid #bec2c7;
-	width: 200px;
-	margin: 1px;
+	width: 300px;
+	margin-top: 0px;
+	margin-bottom: 3px;
 	font-size: larger;
 	font-weight: bold;
 	color: #5c6570;
 	background-color: #fffcf5;
+}
+.solid-box.isActive{
+	background-color: #f0ede5;
 }
 
 .itiran-btn {
@@ -19,9 +23,12 @@
 	cursor: pointer;
 	margin-bottom: 10px;
 }
+.itiran-btn:hover{
+	background-color: #7da0ca;
+}
 
 .overlay {
-	position: fixed;
+	position: absolute;
 	padding: 5px;
 	background-color: #fffcf5cb;
 	border: 1px solid #bec2c7;
