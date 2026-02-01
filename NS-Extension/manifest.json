@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "スケジューラ　グループ選択ボタン",
+  "version": "0.1",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://miyabi381.github.io/Scheduler-test.html"],
+      "js": ["common.js","main.js"]
+    }
+  ]
+}

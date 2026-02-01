@@ -1,5 +1,5 @@
 window.onload = () => {
-	console.log("^^^^^　読み込み完了　^^^^^^^");
+	// console.log("^^^^^　読み込み完了　^^^^^^^");
 	var scroll = document.querySelectorAll('.up');
 	var Animation = function () {
 		if (window.innerHeight == 0) {
@@ -15,10 +15,6 @@ window.onload = () => {
 	window.addEventListener('scroll', Animation);
 	let title = document.title;
 };
-
-
-
-
 
 // グループ一覧 設定ボタン
 const itiranSetteiBtn = document.createElement("button");
@@ -80,7 +76,7 @@ itiranBTN.addEventListener('click', () => {
 				const indexGroup = showGroupList.indexOf(text);
 				if (indexGroup !== -1) showGroupList.splice(indexGroup, 1);
 			};
-			cLog(showGroupList);
+			// cLog(showGroupList);
 		});
 
 		// ボタンが選択されている場合処理
@@ -133,7 +129,7 @@ function showGroup(text) {
 			addTr(nasu, times);
 			break;
 		default:
-			cLog("グループが存在しない！");
+		// cLog("グループが存在しない！");
 	};
 }
 
@@ -191,11 +187,18 @@ function hideElement(tag) {
 
 // 引数の要素をすべて消す
 function delChildren(target, me = "") {
-	if (!target) { cLog("delChildren : 要素が見つかりません"); return; };
-	if (me != "") { target.remove(); cLog("delChildren : " + target.textContent + " を削除"); return; };
+	if (!target) {
+		// cLog("delChildren : 要素が見つかりません");
+		return;
+	};
+	if (me != "") {
+		target.remove();
+		// cLog("delChildren : " + target.textContent + " を削除");
+		return;
+	};
 	if (target.childElementCount > 0) {
 		target.replaceChildren();
-		cLog("delChildren : " + target.textContent + " 配下を削除");
+		// cLog("delChildren : " + target.textContent + " 配下を削除");
 		return true;
 	} else {
 		// cLog("delChildren:要素なし");
