@@ -43,22 +43,27 @@
 			</tr>
 			<tr high="20px">
 				<td colspan="3">
-					<h3 class="nospace">■URL指定>ブラウザ起動</h3>
+					<h3 class="nospace">■ manifest.json</h3>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<pre class="boxShadow">
-Option Explicit
-
-Dim shell
-Set shell = CreateObject("WScript.Shell")
-
-    ' Edge の実行ファイルのフルパス
-    shell.Run """C:\Users\makku\AppData\Local\Vivaldi\Application\vivaldi.exe""https://manage.booth.pm/items"
-
-' オブジェクト解放
-Set shell = Nothing
+{
+  "manifest_version": 3,
+  "name": "スケジューラ　グループ選択ボタン",
+  "version": "0.1",
+  "permissions": [
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
 
     
 						</pre>
@@ -72,63 +77,31 @@ Set shell = Nothing
 			</tr>
 			<tr high="20px">
 				<td colspan="3">
-					<h3 class="nospace">■ウィンドウ前面</h3>
+					<h3 class="nospace">■ background.js</h3>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<pre class="boxShadow">
 
-Public Sub activateApp(appName,fileName)
-
-Dim objFile, workFile
-Dim objWindow, appFoundFlag
-
-appFoundFlag = 0 
-
-
-Set objFile = CreateObject("Scripting.FileSystemObject")
+const browser = self.browser || self.chrome;
+const TARGETS = [
+    "https://miyabi381.github.io/Scheduler-test.html",
+    "https://x.com/"
+];
 
 
-If objFile.FileExists(fileName) Then
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status !== "complete") return;
+    if (!tab.url || !tab.url.startsWith("http")) return;
 
-    Set workFile = objFile.OpenTextFile(fileName, 1)
-    
-    Dim lineValue
+    if (!TARGETS.some(url => tab.url.startsWith(url))) return;
 
-
-    Do Until workFile.AtEndOfStream
-        lineValue = workFile.ReadLine
-        
-
-        If lineValue = appName Then
-            appFoundFlag = 1
-            Set objWindow = CreateObject("WScript.Shell")
-            objWindow.AppActivate(appName) 
-
-            Set objWindow = Nothing
-            Exit Do
-        End If
-    Loop
-
-
-    If appFoundFlag = 0 Then
-        msgBox appName+" Not Found"
-    End If
-        
-
-    workFile.Close
-
-    Set workFile = Nothing
-Else
-    msgBox fileName+" Not Found "
-End If
-
-
-Set objFile = Nothing
-
-End Sub
-
+    browser.scripting.executeScript({
+        target: { tabId },
+        files: ["common.js", "main.js"]
+    });
+});
 
     
 						</pre>
@@ -141,78 +114,28 @@ End Sub
 			</tr>
 			<tr high="20px">
 				<td colspan="3">
-					<h3 class="nospace">■ファイル出力</h3>
+					<h3 class="nospace">■ common.js</h3>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<pre class="boxShadow">
-'********** ファイル出力 **********
-Public Sub outText(fileNamePath,inData,timeStamp)
+//　ログ出力
+function cLog(text) {
+	console.log(text);
+}
 
-Dim objFile, workFile
-
-' ファイルオブジェクト生成
-Set objFile = CreateObject("Scripting.FileSystemObject")
-If timeStamp = True Then
-
-    ' ファイルが存在するか
-    If objFile.FileExists(fileNamePath) Then
-
-        ' 上書きモードでファイルを開く
-        Set workFile = objFile.OpenTextFile(fileNamePath, 2)
-        ' 追記
-        Call nowWrite(workFile)
-        workFile.WriteLine inData
-        
-        'msgBox "追記"
-    Else
-    ' ファイル生成
-    Set workFile = objFile.CreateTextFile(fileNamePath, True)
-        ' 書き込み
-        Call nowWrite(workFile)
-        workFile.WriteLine inData
-        
-        'msgBox "生成"
-    End If
-Else
-    ' ファイルが存在するか
-    If objFile.FileExists(fileNamePath) Then
-
-        ' 上書きモードでファイルを開く
-        Set workFile = objFile.OpenTextFile(fileNamePath, 8)
-        ' 追記
-        workFile.WriteLine inData
-        
-        'msgBox "追記"
-    Else
-    ' ファイル生成
-    Set workFile = objFile.CreateTextFile(fileNamePath, True)
-        ' 書き込み
-        workFile.WriteLine inData
-        
-        'msgBox "生成"
-    End If
-
-End If
-
-' 作業ファイル終了
-workFile.Close
-
-' オブジェクト解放
-Set objFile = Nothing
-Set workFile = Nothing
-
-    
-End Sub
-
-' タイムスタンプ挿入
-Sub nowWrite(file)
-file.WriteLine ""
-file.WriteLine "-------------------------------"
-file.WriteLine Now
-file.WriteLine "-------------------------------"
-End Sub
+// クリックイベント
+function humanClick(target) {
+	const events = ['mousedown', 'mouseup', 'click'];
+	events.forEach(type =>
+		target.dispatchEvent(new MouseEvent(type, {
+			bubbles: true, // 子要素まで
+			cancelable: true, // デフォルト処理実行可
+			view: window // ウィンドウ内で
+		}))
+	);
+}
 
     
 						</pre>
@@ -225,82 +148,17 @@ End Sub
 			</tr>
 			<tr high="20px">
 				<td colspan="3">
-					<h3 class="nospace">■タスクリスト取得(メイン)</h3>
+					<h3 class="nospace">■ main.js</h3>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<pre class="boxShadow">
-Option Explicit
+cLog("NS-Extension : 読み込み完了");
 
-'　ほかVBSファイルの読み込み
-Call leadFile("test-fileCreate.vbs")
-Call leadFile("test-AppActivate.vbs")
-
-'グローバル変数の定義
-Dim Ar(),cnta,i
-
-
-'********** メイン **********
-
-'タスクリスト読み込み
-Call TaskGet()
-
-Call outText("TaskList.txt","",True)
-For i=1 to cnta
-    Call outText("TaskList.txt",Ar(i),False)
-    'msgBox Ar(i)
-Next
-
-Call activateApp("HTA","TaskList.txt")
-
-WScript.Quit
-
-'********** タスクリスト取得 **********
-
-Public Sub TaskGet()
-Dim sh, res
-Dim exelist, sss
-Dim i, j, exe_title
-
-Set sh = CreateObject("WScript.Shell")
-    Set res = sh.exec( "%comspec% /c tasklist.exe /NH /v /FO csv ")
-        
-        exelist = Split(res.StdOut.ReadAll,vbCrLf)
-        
-        cnta=0
-        
-        For i=0 to ubound(exelist)
-        sss = Split(exelist(i)+",",""",")
-        If( ubound(sss)>0) then
-            For j=0 to ubound(sss)
-            If(j = 8) then
-                exe_title = mid(sss(j),2)
-                If exe_title<>"N/A" Then
-                    cnta=cnta+1
-                    Redim Preserve Ar(cnta)
-                    Ar(cnta)=exe_title
-                End If
-            End If
-        Next
-    End If
-Next
-
-Set sh=Nothing
-Set res=Nothing
-End Sub
-    
-    
-' *********他VBSファイルの読み込み*********
-Sub leadFile(fileNamePath)
-Dim fso, file, vbs
-Set fso = CreateObject("Scripting.FileSystemObject")
-Set file = fso.OpenTextFile(fileNamePath, 1)
-vbs = file.ReadAll
-file.Close
-ExecuteGlobal vbs
-End Sub
-
+// 一覧表示ボタン
+const itiranbtn = document.querySelector("body > div > div:nth-child(4) > button");
+humanClick(itiranbtn);
     
 						</pre>
 				</td>
