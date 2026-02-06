@@ -1,18 +1,18 @@
 //　ログ出力
 function cLog(text) {
-	console.log(text);
+  console.log(text);
 }
 
 // クリックイベント
 function humanClick(target) {
-	const events = ['mousedown', 'mouseup', 'click'];
-	events.forEach(type =>
-		target.dispatchEvent(new MouseEvent(type, {
-			bubbles: true, // 子要素まで
-			cancelable: true, // デフォルト処理実行可
-			view: window // ウィンドウ内で
-		}))
-	);
+  const events = ['mousedown', 'mouseup', 'click'];
+  events.forEach(type =>
+    target.dispatchEvent(new MouseEvent(type, {
+      bubbles: true, // 子要素まで
+      cancelable: true, // デフォルト処理実行可
+      view: window // ウィンドウ内で
+    }))
+  );
 }
 
 /**
@@ -41,4 +41,23 @@ function onElementCreated(selector, callback) {
     childList: true,
     subtree: true
   });
+}
+
+// ボタン作成
+// 追加先要素 / ボタン名 / クラス
+function createBtn(tag, titleName, className = "") {
+  const btn = document.createElement("button");
+  btn.textContent = titleName;
+  btn.className = className;
+  document.querySelector(tag).appendChild(btn);
+  return btn;
+}
+
+// ボタントグル処理
+function btnIsActive(btn, className) {
+  if (btn.className == className) {
+    btn.className = className+" isActive";
+  } else {
+    btn.className = className;
+  }
 }
