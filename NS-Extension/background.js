@@ -1,7 +1,8 @@
 const browser = self.browser || self.chrome;
 const TARGETS = [
     "https://miyabi381.github.io/Scheduler-test.html",
-    "https://x.com/"
+    "https://x.com/",
+    "http://127.0.0.1:5500/"
 ];
 
 

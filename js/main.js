@@ -1,24 +1,40 @@
 /**
  * ページtopボタン表示
  */
-window.onload = function () {
-    var scroll = document.querySelectorAll('.up');
-    var Animation = function () {
-        if (window.innerHeight == 0) {
-            scroll.length.classList.remove('show');
-        }
-        for (var i = 0; i < scroll.length; i++) {
-            var triggerMargin = 10;
-            if (window.innerHeight > triggerMargin) {
-                scroll[i].classList.add('show');
-            }
-        }
-    }
-    window.addEventListener('scroll', Animation);
-    getTitle();
+window.onload = () => {
+    const buttons = document.querySelectorAll('.up');
+
+    const onScroll = () => {
+        buttons.forEach(btn => {
+            btn.classList.toggle('show', window.scrollY > 10);
+        });
+    };
+
+    window.addEventListener('scroll', onScroll);
+
 }
 
-
+/**
+* ファイル読み込み
+*/
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("pre[data-src]").forEach(pre => {
+        fetch(pre.dataset.src)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`読み込み失敗: ${pre.dataset.src}`);
+                }
+                return res.text();
+            })
+            .then(text => {
+                pre.textContent = text;
+            })
+            .catch(err => {
+                pre.textContent = err.message;
+                console.error(err);
+            });
+    });
+});
 
 /**
  * PhasmoPhobia ゴースト証拠表示
@@ -77,8 +93,8 @@ function PPGhostJudge(eviID) {
             for (const gName of PPGN) {
                 var count = 0;
                 alert(PPGNEvi.spirit);
-                alert(gName+"  1");
-                alert(PPGNEvi.gName+"  2");
+                alert(gName + "  1");
+                alert(PPGNEvi.gName + "  2");
                 for (const gEvi of PPGNEvi.gName) {
                     alert(gEvi);
                     if (gEvi == eviID) {  // ゴーストに証拠がある
@@ -158,7 +174,7 @@ const iceFlag = 0;  // 氷点下の温度
 //     , "hantu", "goryo", "myling", "onryo", "twins", "raiju", "obake"
 //     , "mimic", "moroi", "deogen", "thaye"];
 
-    let PPGN = ["spirit", "wraith"];
+let PPGN = ["spirit", "wraith"];
 
 
 /**
@@ -171,7 +187,7 @@ const iceFlag = 0;  // 氷点下の温度
 //     , hantuEvi, goryoEvi, mylingEvi, onryoEvi, twinsEvi, raijuEvi, obake
 //     , mimicEvi, moroiEvi, deogenEvi, thayeEvi];
 
-let PPGNEvi = {spirit:["emf", "box", "book"], wraith:["emf", "box", "dots"]};
+let PPGNEvi = { spirit: ["emf", "box", "book"], wraith: ["emf", "box", "dots"] };
 
 
 /**
@@ -369,7 +385,7 @@ function mokujiTable(data) {
 /**
  * 目次・MOD名の表示/非表示切り替え
  */
-function hidemodList(table,Text) {
+function hidemodList(table, Text) {
 
     if (document.getElementById(table).style.display == "block") {
         document.getElementById(table).style.display = "none";
@@ -400,3 +416,4 @@ function getTitle() {
             break;
     }
 }
+
