@@ -53,11 +53,34 @@ function createBtn(tag, titleName, className = "") {
   return btn;
 }
 
-// ボタントグル処理
-function btnIsActive(btn, className) {
-  if (btn.className == className) {
-    btn.className = className+" isActive";
-  } else {
-    btn.className = className;
-  }
+// 同期処理
+function waitFor(selector) {
+  // プロミス生成 保留 ->　成功・失敗
+  return new Promise((resolve, reject) => {
+
+    // すでに存在する場合終了
+    const existing = document.querySelector(selector);
+    if (existing) return resolve(existing);
+
+    // 監視処理　１回のみ
+    const observer = new MutationObserver(() => {
+      const el = document.querySelector(selector);
+      if (el) {
+        observer.disconnect();
+        resolve(el);
+      }
+    });
+
+    // body以下監視開始
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+
+    // 例外
+    setTimeout(() => {
+      observer.disconnect();
+      reject(new Error("Timeout"));
+    }, 3000);
+  });
 }
