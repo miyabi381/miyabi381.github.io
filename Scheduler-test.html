@@ -73,6 +73,29 @@
 			</tr>
 		</table>
 
+		<h2>テスト用　お問い合わせホーム</h2>
+		<form id="test-form" class="form-wrapper" action="https://formspree.io/f/mqedbwqn" method="POST">
+
+			<label for="name">お名前</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">メールアドレス</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="select">商品選択</label>
+			<select id="select" name="select">
+				<option>トマト</option>
+				<option>きゅうり</option>
+				<option>なすび</option>
+				<option>にんじん</option>
+			</select>
+
+			<label for="message">お問い合わせ内容</label>
+			<textarea id="message" name="message" required></textarea>
+
+			<button type="submit">送信</button>
+
+		</form>
 
 		<footer class="footer">
 			<p>&copy;Miyabi. All rights reserved.</p>
